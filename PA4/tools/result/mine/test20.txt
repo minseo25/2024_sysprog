@@ -1,0 +1,8 @@
+./sdriver.pl -s ../csapsh -a "-p" -t ../traces/trace20.txt
+#
+# trace20.txt - Output redirection and path search
+#
+csapsh> echo Hello Tiny Shell! > file
+csapsh> cat file
+Hello Tiny Shell!
+csapsh> rm file

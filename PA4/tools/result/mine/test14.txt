@@ -1,0 +1,36 @@
+./sdriver.pl -s ../csapsh -a "-p" -t ../traces/trace14.txt
+#
+# trace14.txt - Restart every stopped process in process group
+#
+csapsh> ./mysplit 4
+Child!
+Child!
+csapsh> jobs
+[1] (-1) { -1 } Stopped ./mysplit 4
+csapsh> /bin/ps a
+    PID TTY      STAT   TIME COMMAND
+   2152 tty2     Ssl+   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   2159 tty2     Sl+    0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+   3117 pts/0    Ss     0:00 bash
+   9188 pts/0    S+     0:00 bash
+   9466 pts/0    S+     0:00 make test14
+   9467 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -s ../csapsh -a "-p" -t ../traces/trace14.txt
+   9468 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -s ../csapsh -a -p -t ../traces/trace14.txt
+   9469 pts/0    S+     0:00 ../csapsh -p
+   9471 pts/0    T      0:00 ./mysplit 4
+   9472 pts/0    T      0:00 ./mysplit 4
+   9479 pts/0    R      0:00 /bin/ps a
+csapsh> fg %1
+Child!
+Child!
+csapsh> /bin/ps a
+    PID TTY      STAT   TIME COMMAND
+   2152 tty2     Ssl+   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   2159 tty2     Sl+    0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+   3117 pts/0    Ss     0:00 bash
+   9188 pts/0    S+     0:00 bash
+   9466 pts/0    S+     0:00 make test14
+   9467 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -s ../csapsh -a "-p" -t ../traces/trace14.txt
+   9468 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -s ../csapsh -a -p -t ../traces/trace14.txt
+   9469 pts/0    S+     0:00 ../csapsh -p
+   9482 pts/0    R      0:00 /bin/ps a

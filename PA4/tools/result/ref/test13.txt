@@ -1,0 +1,22 @@
+./sdriver.pl -s ../reference/csapsh -a "-p" -t ../traces/trace13.txt
+#
+# trace13.txt - Forward SIGTSTP to every process in foreground process group
+#
+csapsh> ./mysplit 4
+Child!
+Child!
+csapsh> jobs
+[1] (-1) { -1 } Stopped ./mysplit 4 
+csapsh> ps a
+    PID TTY      STAT   TIME COMMAND
+   2152 tty2     Ssl+   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   2159 tty2     Sl+    0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+   3117 pts/0    Ss     0:00 bash
+   9188 pts/0    S+     0:00 bash
+   9456 pts/0    S+     0:00 make rtest13
+   9457 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -s ../reference/csapsh -a "-p" -t ../traces/trace13.txt
+   9458 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -s ../reference/csapsh -a -p -t ../traces/trace13.txt
+   9459 pts/0    S+     0:00 ../reference/csapsh -p
+   9461 pts/0    T      0:00 ./mysplit 4
+   9462 pts/0    T      0:00 ./mysplit 4
+   9465 pts/0    R      0:00 ps a

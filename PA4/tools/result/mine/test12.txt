@@ -1,0 +1,18 @@
+./sdriver.pl -s ../csapsh -a "-p" -t ../traces/trace12.txt
+#
+# trace12.txt - Forward SIGINT to every process in foreground process group
+#
+csapsh> ./mysplit 4
+Child!
+Child!
+csapsh> /bin/ps a
+    PID TTY      STAT   TIME COMMAND
+   2152 tty2     Ssl+   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+   2159 tty2     Sl+    0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+   3117 pts/0    Ss     0:00 bash
+   9188 pts/0    S+     0:00 bash
+   9417 pts/0    S+     0:00 make test12
+   9418 pts/0    S+     0:00 /bin/sh -c ./sdriver.pl -s ../csapsh -a "-p" -t ../traces/trace12.txt
+   9419 pts/0    S+     0:00 /usr/bin/perl ./sdriver.pl -s ../csapsh -a -p -t ../traces/trace12.txt
+   9420 pts/0    S+     0:00 ../csapsh -p
+   9432 pts/0    R      0:00 /bin/ps a
